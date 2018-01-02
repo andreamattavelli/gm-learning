@@ -11,11 +11,10 @@ class SeminarTest {
 
 	@Test
 	void test() {
-		Course course = new Course("Sw Eng", "12312561", "Sw Engineering class");
 		List<Enrollment> enrollment = Arrays.asList(
 				new Enrollment(new Student("Pippo", "Pluto")),
 				new Enrollment(new Student("Asd", "Qwert")));
-		Seminar seminar = new Seminar(course, "Room 918", enrollment);
+		Seminar seminar = new Seminar("Sw Eng", "12312561", "Sw Engineering class", "Room 918", enrollment);
 
 		assertEquals("Sw Eng 12312561", seminar.getName());
 		assertEquals("Sw Engineering class", seminar.getDescription());

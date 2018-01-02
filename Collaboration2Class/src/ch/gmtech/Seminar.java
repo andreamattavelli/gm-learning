@@ -5,13 +5,17 @@ import java.util.List;
 
 public class Seminar {
 
+	private String name;
+	private String number;
+	private String description;
 	private String location;
 
-	private Course course;
 	private List<Enrollment> enrollments;
 	
-	public Seminar(Course course, String location, List<Enrollment> enrollments) {
-		this.course = course;
+	public Seminar(String name, String number, String description, String location, List<Enrollment> enrollments) {
+		this.name = name;
+		this.number = number;
+		this.description = description;
 		this.location = location;
 		this.enrollments = enrollments;
 	}
@@ -25,11 +29,11 @@ public class Seminar {
 	}
 
 	public String getName() {
-		return course.getName() + " " + course.getNumber();
+		return name + " " + number;
 	}
 
 	public String getDescription() {
-		return course.getDescription();
+		return description;
 	}
 
 	public int getSeatsLeft() {
