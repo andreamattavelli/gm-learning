@@ -24,8 +24,8 @@ public class Seminar {
 		this.location = location;
 	}
 
-	public SeminarName getName() {
-		return new SeminarName(course.getName(), course.getNumber());
+	public String getName() {
+		return course.getName() + " " + course.getNumber();
 	}
 
 	public String getDescription() {

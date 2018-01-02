@@ -17,7 +17,7 @@ class SeminarTest {
 				new Enrollment(new Student("Asd", "Qwert")));
 		Seminar seminar = new Seminar(course, "Room 918", enrollment);
 
-		assertEquals("Sw Eng 12312561", seminar.getName().toString());
+		assertEquals("Sw Eng 12312561", seminar.getName());
 		assertEquals("Sw Engineering class", seminar.getDescription());
 		assertEquals("Room 918", seminar.getLocation());
 		assertEquals(0, seminar.getSeatsLeft());
