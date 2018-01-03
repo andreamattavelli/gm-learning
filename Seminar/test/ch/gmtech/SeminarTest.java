@@ -14,7 +14,7 @@ class SeminarTest {
 		List<Student> student = Arrays.asList(
 				new Student("Pippo", "Pluto"),
 				new Student("Asd", "Qwert"));
-		Seminar seminar = new Seminar(new Course("Sw Eng", "12312561", "Sw Engineering class"), "Room 918", student);
+		Seminar seminar = new Seminar(new Course("Sw Eng", "12312561", "Sw Engineering class", "12/09/2017"), "Room 918", student);
 
 		assertEquals("Sw Eng 12312561", seminar.getName());
 		assertEquals("Sw Engineering class", seminar.getDescription());
