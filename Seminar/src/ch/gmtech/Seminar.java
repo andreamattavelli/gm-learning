@@ -5,19 +5,15 @@ import java.util.List;
 
 public class Seminar {
 
-	private String name;
-	private String number;
-	private String description;
+	private Course course;
 	private String location;
 
-	private List<Enrollment> enrollments;
+	private List<Student> students;
 	
-	public Seminar(String name, String number, String description, String location, List<Enrollment> enrollments) {
-		this.name = name;
-		this.number = number;
-		this.description = description;
+	public Seminar(Course course, String location, List<Student> students) {
+		this.course = course;
 		this.location = location;
-		this.enrollments = enrollments;
+		this.students = students;
 	}
 	
 	public String getLocation() {
@@ -29,11 +25,11 @@ public class Seminar {
 	}
 
 	public String getName() {
-		return name + " " + number;
+		return course.getName() + " " + course.getNumber();
 	}
 
 	public String getDescription() {
-		return description;
+		return course.getDescription();
 	}
 
 	public int getSeatsLeft() {
@@ -41,13 +37,13 @@ public class Seminar {
 	}
 
 	public List<String> getStudentList() {
-		List<String> students = new ArrayList<>();
+		List<String> studentStrings = new ArrayList<>();
 		
-		for (Enrollment enrollment : enrollments) {
-			students.add(enrollment.getInfo());
+		for (Student student : students) {
+			studentStrings.add(student.getInfo());
 		}
 		
-		return students;
+		return studentStrings;
 	}
 
 }
