@@ -1,16 +1,15 @@
 package ch.gmtech;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class Seminar {
 
 	private Course course;
 	private String location;
 
-	private List<Student> students;
+	private Collection<Student> students;
 	
-	public Seminar(Course course, String location, List<Student> students) {
+	public Seminar(Course course, String location, Collection<Student> students) {
 		this.course = course;
 		this.location = location;
 		this.students = students;
@@ -36,14 +35,8 @@ public class Seminar {
 		return 0;
 	}
 
-	public List<String> getStudentList() {
-		List<String> studentStrings = new ArrayList<>();
-		
-		for (Student student : students) {
-			studentStrings.add(student.getInfo());
-		}
-		
-		return studentStrings;
+	public Collection<Student> getStudentList() {
+		return students;
 	}
 
 }

@@ -22,8 +22,8 @@ class SeminarTest {
 		assertEquals(0, seminar.getSeatsLeft());
 		assertEquals(2, seminar.getStudentList().size());
 		assertAll("studentlist", 
-				() -> assertEquals("Pippo Pluto", seminar.getStudentList().get(0)),
-				() -> assertEquals("Asd Qwert", seminar.getStudentList().get(1)));
+				() -> assertTrue(seminar.getStudentList().toString().contains("Pippo Pluto")),
+				() -> assertTrue(seminar.getStudentList().toString().contains("Asd Qwert")));
 	}
 
 }
