@@ -11,19 +11,4 @@ public class MainControllerTest {
 		assertTrue(new MainController().handles("/"));
 	}
 	
-	@Test
-	public void handlesCourseHtmlRoute() throws Exception {
-		assertTrue(new CourseHtmlController().handles("/course/html"));
-	}
-	
-	@Test
-	public void handlesCourseRawRoute() throws Exception {
-		assertTrue(new CourseRawController().handles("/course/raw"));
-	}
-	
-	@Test
-	public void handlesCourseCsvRoute() throws Exception {
-		assertTrue(new CourseCSVController().handles("/course/csv"));
-	}
-	
 }
