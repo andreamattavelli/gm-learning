@@ -11,9 +11,7 @@ public class CourseHtmlLayout extends CourseLayout {
 	String buildHeader(String name, String description, String location, int seatsLeft) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("<html>"); builder.append(System.lineSeparator());
-		builder.append("<head>"); builder.append(System.lineSeparator());
-		builder.append("\t<title>" + name + "</title>"); builder.append(System.lineSeparator());
-		builder.append("</head>"); builder.append(System.lineSeparator());
+		builder.append(HtmlLayoutHelper.getHead("Seminar").render()); builder.append(System.lineSeparator());
 		builder.append("<body>"); builder.append(System.lineSeparator());
 		builder.append("\t<div>" + name + "</div>"); builder.append(System.lineSeparator());
 		builder.append("\t<ul>"); builder.append(System.lineSeparator());

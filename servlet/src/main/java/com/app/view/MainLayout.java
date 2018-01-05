@@ -8,16 +8,7 @@ public class MainLayout {
 	public Element build() {
 		return 
 			html5(
-		        head(
-		          meta(attr("charset -> utf-8")),
-		          meta(attr("http-equiv -> X-UA-Compatible","content -> IE=edge")),
-		          meta(attr("name -> viewport","content -> width=device-width, initial-scale=1")),
-		          title(
-		            "helloWorld!"
-		          ),
-		          text("<!-- Bootstrap core CSS -->"),
-		          link(attr("href -> https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css","rel -> stylesheet"))
-		        ),
+				HtmlLayoutHelper.getHead("Seminar"),
 		        body(
 		          div(attr("class -> container"),
 		            div(attr("class -> jumbotron"),
