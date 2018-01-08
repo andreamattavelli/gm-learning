@@ -3,7 +3,7 @@ package com.app.view;
 import com.github.manliogit.javatags.element.Element;
 import static com.github.manliogit.javatags.lang.HtmlHelper.*;
 
-public class MainLayout {
+public class MainLayout implements Layout {
 
 	public Element build() {
 		return 

@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import com.app.controller.Context;
 import com.app.controller.Controller;
+import com.app.view.PageNotFoundLayout;
 
 public class Servlet extends HttpServlet {
 
@@ -44,6 +45,8 @@ public class Servlet extends HttpServlet {
 				}
 			}
 		}
+		resp.getWriter().write(new PageNotFoundLayout().build().render());
 		resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
 	}
+	
 }
