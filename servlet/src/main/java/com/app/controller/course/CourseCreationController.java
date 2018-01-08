@@ -1,7 +1,9 @@
-package com.app.controller;
+package com.app.controller.course;
 
 import java.util.Map;
 
+import com.app.controller.Context;
+import com.app.controller.Controller;
 import com.app.model.Course;
 import com.app.model.CourseRepository;
 import com.app.view.CourseCreationLayout;

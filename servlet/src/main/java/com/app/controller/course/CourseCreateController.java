@@ -1,5 +1,7 @@
-package com.app.controller;
+package com.app.controller.course;
 
+import com.app.controller.Context;
+import com.app.controller.Controller;
 import com.app.view.CourseCreateLayout;
 
 public class CourseCreateController implements Controller {
