@@ -25,8 +25,10 @@ public class CourseCreationController implements Controller {
 					context.request().getParameterMap().get("initDate")[0], 
 					context.request().getParameterMap().get("location")[0]);
 			CourseRepository.getInstance().addNewCourse(created);
+			context.response().sendRedirect("/course");
+		} else {
+			context.response().getWriter().write(new CourseCreationLayout().build().render());
 		}
-		context.response().getWriter().write(new CourseCreationLayout(created).build().render());
 	}
 
 	private boolean checkParameters(Map<String, String[]> parameterMap) {

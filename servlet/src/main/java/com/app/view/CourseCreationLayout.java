@@ -1,17 +1,18 @@
 package com.app.view;
 
-import static com.github.manliogit.javatags.lang.HtmlHelper.*;
+import static com.github.manliogit.javatags.lang.HtmlHelper.a;
+import static com.github.manliogit.javatags.lang.HtmlHelper.attr;
+import static com.github.manliogit.javatags.lang.HtmlHelper.body;
+import static com.github.manliogit.javatags.lang.HtmlHelper.div;
+import static com.github.manliogit.javatags.lang.HtmlHelper.h1;
+import static com.github.manliogit.javatags.lang.HtmlHelper.html5;
+import static com.github.manliogit.javatags.lang.HtmlHelper.p;
+import static com.github.manliogit.javatags.lang.HtmlHelper.script;
+import static com.github.manliogit.javatags.lang.HtmlHelper.text;
 
-import com.app.model.Course;
 import com.github.manliogit.javatags.element.Element;
 
 public class CourseCreationLayout implements Layout {
-	
-	private Course course;
-	
-	public CourseCreationLayout(Course course) {
-		this.course = course;
-	}
 
 	public Element build() {
 		return 
@@ -24,7 +25,7 @@ public class CourseCreationLayout implements Layout {
         			          h1(attr("class -> page-header text-center"),
         			            text("Course Creation")
         			          ),
-        			          buildCreationResponse(course),
+        			          text("Failed to create course"),
         			          p(
 				                a(attr("class -> btn btn-lg btn-success","href -> /course","role -> button"),
 				                  text("Go to courses")
@@ -36,12 +37,6 @@ public class CourseCreationLayout implements Layout {
 	        		script(attr("src -> js/jquery.min.js"))
     			)
 		      );
-	}
-
-	private Element buildCreationResponse(Course course) {
-		return p(attr("class -> lead"),
-                course == null ? text("Failed to create course") : text("Success")
-              );
 	}
 	
 }
