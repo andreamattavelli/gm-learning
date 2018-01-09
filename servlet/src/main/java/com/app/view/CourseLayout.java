@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.List;
 
 import com.app.model.Course;
-import com.app.model.Student;
 import com.github.manliogit.javatags.element.Element;
 
 public class CourseLayout implements Layout {
@@ -19,21 +18,34 @@ public class CourseLayout implements Layout {
 	}
 
 	public Element build() {
-		return html5(
-					HtmlLayoutHelper.getHead("Course list"),
-			        body(
-			        	div(attr("class -> container"),
-		        		    buildCourses(courses)
-		        		   )
-			        	),
-		            script(attr("src -> js/jquery.min.js"))
-			      );
+		return div(attr("class -> col-lg-8 col-md-8 col-sm-9"),
+	            table(attr("class -> table table-striped"),
+	                    thead(
+	                      tr(
+	                        th(
+	                          text("Id")
+	                        ),
+	                        th(
+	                          text("Name")
+	                        ),
+	                        th(
+	                          text("Location")
+	                        ),
+	                        th(
+	                          text("Total seats")
+	                        ),
+	                        th(
+	                          text("Start date")
+	                        )
+	                      )
+	                    ),
+	                    tbody(buildCourses(courses))
+	                    )
+	            );
 	}
 
 	private Element[] buildCourses(Collection<Course> courses) {
 		List<Element> htmlCourses = new ArrayList<>();
-		
-		htmlCourses.add(buildPageTitle());
 		
 		for (Course course : courses) {
 			htmlCourses.add(buildCourse(course));
@@ -42,36 +54,14 @@ public class CourseLayout implements Layout {
 		return htmlCourses.toArray(new Element[0]);
 	}
 
-	private Element buildPageTitle() {
-		return div(attr("class -> col-md-6 col-md-offset-3"),
-	        		h1(attr("class -> page-header text-center"),
-	        		   text("Course List")
-	        		)
-	              );
-	}
-
 	private Element buildCourse(Course course) {
-		return div(attr("class -> row"),
-				  div(attr("class -> col-md-6 col-md-offset-3"),
-					b(text(course.getName())),
-					ul(
-						li(text(course.getDescription())),
-						li(text(course.getLocation()))
-						),
-					text("Students:"),
-					buildStudentList(course.getStudents())
-                  )
- 			   );
-	}
-
-	private Element buildStudentList(Collection<Student> students) {
-		List<Element> htmlStudents = new ArrayList<>();
-		
-		for (Student student : students) {
-			htmlStudents.add(li(student.toString()));
-		}
-		
-		return ul(htmlStudents.toArray(new Element[0]));
+		return tr(
+				td(text(course.getId())),
+				td(text(course.getName())),
+				td(text(course.getLocation())),
+				td(text(course.getSeats())),
+				td(text(course.getInitDate()))
+				);
 	}
 	
 }

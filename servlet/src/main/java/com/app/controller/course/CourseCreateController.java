@@ -7,6 +7,7 @@ import com.app.controller.Controller;
 import com.app.controller.Feedback;
 import com.app.model.Course;
 import com.app.view.CourseCreateLayout;
+import com.app.view.MainLayout;
 
 public class CourseCreateController extends Controller {
 	
@@ -36,7 +37,7 @@ public class CourseCreateController extends Controller {
 			}
 		}
 		
-		context.response().getWriter().write(new CourseCreateLayout(feedback).build().render());
+		context.response().getWriter().write(new MainLayout("Create new course", new CourseCreateLayout(feedback)).build().render());
 	}
 
 	private Feedback saveCourse(Context context) throws IOException {
