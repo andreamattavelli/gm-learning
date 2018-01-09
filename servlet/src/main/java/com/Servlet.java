@@ -2,6 +2,8 @@ package com;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -13,19 +15,16 @@ import javax.sql.DataSource;
 
 import com.app.controller.Context;
 import com.app.controller.Controller;
+import com.app.model.Course;
 import com.app.view.PageNotFoundLayout;
 
 public class Servlet extends HttpServlet {
 
-	private DataSource _ds;
+	private Set<Course> _courses;
 	
 	@Override
 	public void init() throws ServletException {
-		try {
-			_ds = (DataSource)new InitialContext().lookup("java:/comp/env/jdbc/ds");
-		} catch (NamingException e) {
-			throw new RuntimeException(e);
-		}
+		_courses = new HashSet<>();
 	}
 	
 	@Override
@@ -33,11 +32,7 @@ public class Servlet extends HttpServlet {
 		for(Controller c : new ControllerFactory().create()){
 			if(c.handles(req.getRequestURI())){
 				try {
-					Connection connection = _ds.getConnection();
-					connection.setAutoCommit(false);
-					c.execute(new Context(req, resp, connection));
-					connection.commit();
-					connection.close();
+					c.execute(new Context(req, resp, _courses));
 					return;
 				} catch (Exception e) {
 					resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

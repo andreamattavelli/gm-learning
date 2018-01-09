@@ -8,7 +8,6 @@ import com.app.controller.Controller;
 import com.app.controller.MainController;
 import com.app.controller.course.CourseController;
 import com.app.controller.course.CourseCreateController;
-import com.app.controller.course.CourseCreationController;
 
 public class ControllerFactory {
 
@@ -16,8 +15,7 @@ public class ControllerFactory {
 		return asList(
 				new MainController(),
 				new CourseController(),
-				new CourseCreateController(),
-				new CourseCreationController()
+				new CourseCreateController()
 				);
 	}
 }

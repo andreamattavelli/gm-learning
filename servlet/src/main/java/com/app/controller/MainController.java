@@ -16,4 +16,5 @@ public class MainController implements Controller {
 
 		context.response().getWriter().write(new MainLayout().build().render());
 	}
+
 }
