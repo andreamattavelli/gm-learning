@@ -4,7 +4,7 @@ import com.app.controller.Context;
 import com.app.controller.Controller;
 import com.app.view.CourseLayout;
 
-public class CourseController implements Controller {
+public class CourseController extends Controller {
 
 	@Override
 	public boolean handles(String route) {

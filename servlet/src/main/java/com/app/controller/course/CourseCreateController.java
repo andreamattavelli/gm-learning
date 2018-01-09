@@ -5,12 +5,17 @@ import java.io.IOException;
 import com.app.controller.Context;
 import com.app.controller.Controller;
 import com.app.controller.Feedback;
-import com.app.controller.rule.Rule;
-import com.app.controller.rule.RuleFactory;
 import com.app.model.Course;
 import com.app.view.CourseCreateLayout;
 
-public class CourseCreateController implements Controller {
+public class CourseCreateController extends Controller {
+	
+	public static final String NAME = "name";
+	public static final String ID = "id";
+	public static final String LOCATION = "location";
+	public static final String SEATS = "seats";
+	public static final String STARTDATE = "start";
+	public static final String DESCRIPTION = "description";
 	
 	@Override
 	public boolean handles(String route) {
@@ -38,24 +43,13 @@ public class CourseCreateController implements Controller {
 		Feedback feedback = applyRules(context);
 		if (feedback.isOk()) {
 			Course created = new Course(
-					context.getParameter("name"),
-					context.getParameter("number"),
-					context.getParameter("description"),
-					context.getParameter("initDate"),
-					context.getParameter("location"));
+					context.getParameter(NAME),
+					context.getParameter(ID),
+					context.getParameter(LOCATION),
+					context.getParameter(SEATS),
+					context.getParameter(STARTDATE), 
+					context.getParameter(DESCRIPTION));
 			context.courses().add(created);
-		}
-		return feedback;
-	}
-
-	public Feedback applyRules(Context context) {
-		Feedback feedback = new Feedback(context);
-		for (String value : RuleFactory.rulesForCourse().keySet()) {
-			for (Rule rule : RuleFactory.rulesForCourse().get(value)) {
-				if (!rule.appliesOn(context.getParameter(value))) {
-					feedback.putError(value, rule.getErrorMessage());
-				}
-			}
 		}
 		return feedback;
 	}

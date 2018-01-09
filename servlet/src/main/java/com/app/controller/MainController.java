@@ -2,7 +2,7 @@ package com.app.controller;
 
 import com.app.view.MainLayout;
 
-public class MainController implements Controller {
+public class MainController extends Controller {
 
 	@Override
 	public boolean handles(String route) {

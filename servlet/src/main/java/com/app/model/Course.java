@@ -6,19 +6,21 @@ import java.util.Collection;
 public class Course {
 
 	private String name;
-	private String number;
-	private String description;
-	private String initDate;
+	private String id;
 	private String location;
+	private String seats;
+	private String initDate;
+	private String description;
 
 	private Collection<Student> students;
 	
-	public Course(String name, String number, String description, String initDate, String location) {
+	public Course(String name, String id, String location, String seats, String startDate, String description) {
 		this.name = name;
-		this.number = number;
-		this.description = description;
-		this.initDate = initDate;
+		this.id = id;
 		this.location = location;
+		this.seats = seats;
+		this.initDate = startDate;
+		this.description = description;
 		this.students = new ArrayList<>();
 	}
 
@@ -26,8 +28,12 @@ public class Course {
 		return name;
 	}
 
-	public String getNumber() {
-		return number;
+	public String getId() {
+		return id;
+	}
+	
+	public String getSeats() {
+		return seats;
 	}
 
 	public String getDescription() {
