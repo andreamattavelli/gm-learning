@@ -1,4 +1,4 @@
-package com.app.view;
+package com.app.view.html;
 
 import static com.github.manliogit.javatags.lang.HtmlHelper.attr;
 import static com.github.manliogit.javatags.lang.HtmlHelper.head;

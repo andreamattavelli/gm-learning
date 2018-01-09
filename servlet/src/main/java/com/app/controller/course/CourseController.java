@@ -2,8 +2,9 @@ package com.app.controller.course;
 
 import com.app.controller.Context;
 import com.app.controller.Controller;
-import com.app.view.CourseLayout;
-import com.app.view.MainLayout;
+import com.app.model.CourseModelManager;
+import com.app.view.html.CourseLayout;
+import com.app.view.html.MainLayout;
 
 public class CourseController extends Controller {
 
@@ -17,7 +18,12 @@ public class CourseController extends Controller {
 		context.response().setContentType("text/html");
 		context.response().setCharacterEncoding("UTF-8");
 		
-		context.response().getWriter().write(new MainLayout("Main view", new CourseLayout(context.courses())).build().render());
+		context.response().getWriter().write(
+				new MainLayout("Main view", 
+						new CourseLayout(
+								new CourseModelManager(context.connection()).findAllCourses()
+								)
+						).build().render());
 	}
 
 }

@@ -5,9 +5,12 @@ import java.io.IOException;
 import com.app.controller.Context;
 import com.app.controller.Controller;
 import com.app.controller.Feedback;
+import com.app.controller.BaseFeedback;
 import com.app.model.Course;
-import com.app.view.CourseCreateLayout;
-import com.app.view.MainLayout;
+import com.app.model.CourseModelManager;
+import com.app.view.html.CourseCreateLayout;
+import com.app.view.html.HtmlFeedback;
+import com.app.view.html.MainLayout;
 
 public class CourseCreateController extends Controller {
 	
@@ -28,7 +31,7 @@ public class CourseCreateController extends Controller {
 		context.response().setContentType("text/html");
 		context.response().setCharacterEncoding("UTF-8");
 
-		Feedback feedback = new Feedback(context);
+		Feedback feedback = new BaseFeedback(context);
 		if (context.isPost()) {
 			feedback = saveCourse(context);
 			if (feedback.isOk()) {
@@ -37,7 +40,7 @@ public class CourseCreateController extends Controller {
 			}
 		}
 		
-		context.response().getWriter().write(new MainLayout("Create new course", new CourseCreateLayout(feedback)).build().render());
+		context.response().getWriter().write(new MainLayout("Seminar manager", new CourseCreateLayout(new HtmlFeedback(feedback))).build().render());
 	}
 
 	private Feedback saveCourse(Context context) throws IOException {
@@ -50,7 +53,7 @@ public class CourseCreateController extends Controller {
 					context.getParameter(SEATS),
 					context.getParameter(STARTDATE), 
 					context.getParameter(DESCRIPTION));
-			context.courses().add(created);
+			new CourseModelManager(context.connection()).insert(created);
 		}
 		return feedback;
 	}

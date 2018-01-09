@@ -1,7 +1,8 @@
-package com.app.view;
+package com.app.view.html;
 
 import static com.github.manliogit.javatags.lang.HtmlHelper.*;
 
+import com.app.view.Layout;
 import com.github.manliogit.javatags.element.Element;
 
 public class MainLayout implements Layout {
@@ -13,8 +14,6 @@ public class MainLayout implements Layout {
 		_title = title;
 		_bodyContent = bodyContent;
 	}
-
-
 
 	public Element build() {
 		return 
@@ -36,34 +35,6 @@ public class MainLayout implements Layout {
 						    	        div(attr("class -> navbar-header"),
 						    	          a(attr("href -> /","class -> navbar-brand"),
 						    	            text("Seminar")
-						    	          ),
-						    	          button(attr("class -> navbar-toggle","type -> button","data-toggle -> collapse","data-target -> #navbar-main"),
-						    	            span(attr("class -> icon-bar")),
-						    	            span(attr("class -> icon-bar")),
-						    	            span(attr("class -> icon-bar"))
-						    	          )
-						    	        ),
-						    	        div(attr("class -> navbar-collapse collapse","id -> navbar-main"),
-						    	          ul(attr("class -> nav navbar-nav navbar-right"),
-						    	            li(attr("class -> dropdown"),
-						    	              a(attr("class -> dropdown-toggle","data-toggle -> dropdown","href -> #","id -> download","aria-expanded -> false"),
-						    	                text("Account "),
-						    	                span(attr("class -> caret"))
-						    	              ),
-						    	              ul(attr("class -> dropdown-menu","aria-labelledby -> download"),
-						    	                li(
-						    	                  a(attr("href -> /"),
-						    	                    text("settings")
-						    	                  )
-						    	                ),
-						    	                li(attr("class -> divider")),
-						    	                li(
-						    	                  a(attr("href -> /"),
-						    	                    text("logout")
-						    	                  )
-						    	                )
-						    	              )
-						    	            )
 						    	          )
 						    	        )
 						    	      )
@@ -92,27 +63,6 @@ public class MainLayout implements Layout {
 						    	            )
 						    	          ),
 						    	          _bodyContent.build()
-						    	        )
-						    	      ),
-						    	      footer(
-						    	        div(attr("class -> row"),
-						    	          div(attr("class -> col-lg-12"),
-						    	            p(
-						    	              a(attr("href -> http://bootswatch.com/cerulean","rel -> nofollow"),
-						    	                text("Cerulean theme")
-						    	              )
-						    	            ),
-						    	            p(
-						    	              text("Code released under the "),
-						    	              a(attr("href -> https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE"),
-						    	                text("MIT License")
-						    	              ),
-						    	              text(".")
-						    	            ),
-						    	            p(
-						    	              text("GmTechnologies")
-						    	            )
-						    	          )
 						    	        )
 						    	      )
 						    	    ),
