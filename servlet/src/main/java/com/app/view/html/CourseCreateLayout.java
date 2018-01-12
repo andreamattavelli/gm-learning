@@ -1,12 +1,6 @@
 package com.app.view.html;
 
-import static com.github.manliogit.javatags.lang.HtmlHelper.attr;
-import static com.github.manliogit.javatags.lang.HtmlHelper.div;
-import static com.github.manliogit.javatags.lang.HtmlHelper.form;
-import static com.github.manliogit.javatags.lang.HtmlHelper.h1;
-import static com.github.manliogit.javatags.lang.HtmlHelper.input;
-import static com.github.manliogit.javatags.lang.HtmlHelper.label;
-import static com.github.manliogit.javatags.lang.HtmlHelper.text;
+import static com.github.manliogit.javatags.lang.HtmlHelper.*;
 
 import com.app.controller.course.CourseCreateController;
 import com.app.view.Layout;
@@ -21,14 +15,14 @@ public class CourseCreateLayout implements Layout {
 	}
 	
 	public Element build() {
-		return div(attr("class -> col-md-6 col-md-offset-3"),
-				h1(attr("class -> page-header text-center"),
+		return div(attr("class -> col-md-6 col-md-offset-1"),
+				h2(attr("class -> text-center"),
 						text("Course Creation Form")
 						),
 				form(attr("class -> form-horizontal","role -> form","method -> post","action -> /course/create"),
 						createFormInput("Name", CourseCreateController.NAME, "text", "Course name"),
 						createFormInput("Room", CourseCreateController.LOCATION, "text", "Course room"),
-						createFormInput("Seats", CourseCreateController.SEATS, "number", "Total seats"),
+						createFormInput("Seats", CourseCreateController.SEATS, "text", "Total seats"),
 						createFormInput("Start date", CourseCreateController.STARTDATE, "text", "Starting date"),
 						createFormInput("Description", CourseCreateController.DESCRIPTION, "text", "Course description"),
 						div(attr("class -> form-group"),
