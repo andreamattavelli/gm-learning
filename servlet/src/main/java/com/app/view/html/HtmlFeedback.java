@@ -45,8 +45,9 @@ public class HtmlFeedback extends FeedbackDecorator {
 	}
 	
 	public Attribute getFieldValue(String id) {
-		if (isOk())
+		if (_feedback.getParameterValue(id) == null) {
 			return attr();
+		}
 		return attr("value -> " + getParameterValue(id));
 	}
 

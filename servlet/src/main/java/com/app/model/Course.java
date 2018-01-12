@@ -56,4 +56,9 @@ public class Course {
 		return students.add(student);
 	}
 	
+	@Override
+	public String toString() {
+		return id + " " + name + " " + location + " " + seats + " " + initDate + " " + description;
+	}
+	
 }

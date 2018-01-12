@@ -1,9 +1,10 @@
-package com.app.view.html;
+package com.app.view.html.course;
 
 import static com.github.manliogit.javatags.lang.HtmlHelper.*;
 
 import com.app.controller.course.CourseCreateController;
 import com.app.view.Layout;
+import com.app.view.html.HtmlFeedback;
 import com.github.manliogit.javatags.element.Element;
 
 public class CourseCreateLayout implements Layout {

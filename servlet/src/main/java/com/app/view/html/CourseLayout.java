@@ -24,9 +24,6 @@ public class CourseLayout implements Layout {
 						thead(
 								tr(
 										th(
-												text("Id")
-												),
-										th(
 												text("Name")
 												),
 										th(
@@ -37,6 +34,9 @@ public class CourseLayout implements Layout {
 												),
 										th(
 												text("Start date")
+												),
+										th(
+												text("Action")
 												)
 										)
 								),
@@ -57,11 +57,11 @@ public class CourseLayout implements Layout {
 
 	private Element buildCourse(Course course) {
 		return tr(
-				td(text(course.getId())),
-				td(text(course.getName())),
+				td(a(attr("href -> /course/" + course.getId()),text(course.getName()))),
 				td(text(course.getLocation())),
 				td(text(course.getSeats())),
-				td(text(course.getInitDate()))
+				td(text(course.getInitDate())),
+				td(a(attr("href -> /course/delete/" + course.getId()),text("Delete")))
 				);
 	}
 	
